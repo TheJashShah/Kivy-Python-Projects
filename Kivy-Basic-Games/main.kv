@@ -1,0 +1,234 @@
+<Label>:
+    font_size: 30
+
+WindowManager:
+    MainWindow:
+    Rock_Paper_Scissors:
+    Guess_the_number:
+    Tic_Tac_Toe:
+
+<MainWindow>:
+
+    name: "Main"
+
+    GridLayout:
+
+        cols: 1
+
+        Button:
+            text: "Rock, Paper, Scissors"
+            on_release:
+                app.root.current = "RPS"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Guess the Number!"
+            on_release:
+                app.root.current = "number-game"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Tic-Tac-Toe!"
+            on_release:
+                app.root.current = "Tic_Tac_Toe"
+                root.manager.transition.direction = "left"
+
+<Rock_Paper_Scissors>:
+
+    name: "RPS"
+
+    player_text: player_text
+    comp_text: comp_text
+    result_text: result_text
+    rock_btn: rock_btn
+    paper_btn: paper_btn
+    scissors_btn: scissors_btn
+
+    GridLayout:
+        cols: 1
+
+        Label:
+            id: player_text
+            text: "You Played: "
+
+        Label:
+            id: comp_text
+            text: "Comp Played: "
+
+        Label:
+            id: result_text
+            text: "Result: "
+
+        GridLayout:
+            cols: 3
+
+            Button:
+                id: rock_btn
+                text: "Rock"
+                on_release:
+                    root.click_rock()
+
+            Button:
+                id: paper_btn
+                text: "Paper"
+                on_release:
+                    root.click_paper()
+
+            Button:
+                id: scissors_btn
+                text: "Scissors"
+                on_release:
+                    root.click_scissors()
+
+        GridLayout:
+            cols: 1
+
+            Button:
+                text: "Back"
+                on_release:
+                    app.root.current = "Main"
+                    root.manager.transition.direction = "right"
+
+<Guess_the_number>:
+
+    name: "number-game"
+
+    input_ : input
+    guess: guess
+    new: new
+    res_text: res_text
+
+    GridLayout:
+
+        cols: 1
+
+        GridLayout:
+            cols: 1
+
+            TextInput:
+                id: input 
+                multiline: False
+            
+        GridLayout:
+            cols: 2
+
+            Button:
+                id: guess
+                text: "Guess"
+                on_release:
+                    root.guess_btn()
+
+            Button:
+                id: new
+                text: "New Game"
+                on_release:
+                    root.generate_new()
+
+        GridLayout:
+            cols: 1
+
+            Label:
+                id: res_text 
+                text: "Press Guess to guess!"
+
+        GridLayout:
+
+            cols: 1
+
+            Button:
+                text: "Back"
+                on_release:
+                    app.root.current = "Main"
+                    root.manager.transition.direction = "right"
+
+<Tic_Tac_Toe>:
+
+    name: "Tic_Tac_Toe"
+
+    btn_1: btn_1
+    btn_2: btn_2
+    btn_3: btn_3
+    btn_4: btn_4
+    btn_5: btn_5
+    btn_6: btn_6
+    btn_7: btn_7
+    btn_8: btn_8
+    btn_9: btn_9
+    txt: txt
+
+    GridLayout:
+
+        cols: 1
+
+        GridLayout:
+
+            cols: 3
+
+            Button:
+                id: btn_1
+                text: ""
+                on_release:
+                    root.clicked(btn_1)
+
+            Button:
+                id: btn_2
+                text: ""
+                on_release:
+                    root.clicked(btn_2)
+
+            Button:
+                id: btn_3
+                text: ""
+                on_release:
+                    root.clicked(btn_3)
+
+            Button:
+                id: btn_4
+                text: ""
+                on_release:
+                    root.clicked(btn_4)
+
+            Button:
+                id: btn_5
+                text: ""
+                on_release:
+                    root.clicked(btn_5)
+
+            Button:
+                id: btn_6
+                text: ""
+                on_release:
+                    root.clicked(btn_6)
+
+            Button:
+                id: btn_7
+                text: ""
+                on_release:
+                    root.clicked(btn_7)
+
+            Button:
+                id: btn_8
+                text: ""
+                on_release:
+                    root.clicked(btn_8)
+
+            Button:
+                id: btn_9
+                text: ""
+                on_release:
+                    root.clicked(btn_9)
+
+        Label:
+            id: txt 
+            text: "Player one's turn..."
+
+        Button:
+            text: "Reset"
+            on_release:
+                root.reset()
+
+        Button:
+            text: "Back"
+            on_release:
+                app.root.current = "Main"
+                root.manager.transition.direction = "right"
